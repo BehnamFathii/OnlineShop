@@ -1,4 +1,4 @@
-﻿namespace OnlineShop.Store.Core.ApplicationServices.Framework;
+﻿namespace OnlineShop.Store.Core.ApplicationServices.Framework.Events;
 
 public interface IEventDispatcher
 {

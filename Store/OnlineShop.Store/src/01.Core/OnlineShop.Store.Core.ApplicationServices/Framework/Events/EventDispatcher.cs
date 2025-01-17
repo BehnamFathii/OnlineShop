@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace OnlineShop.Store.Core.ApplicationServices.Framework;
+namespace OnlineShop.Store.Core.ApplicationServices.Framework.Events;
 public class EventDispatcher : IEventDispatcher
 {
     private readonly ILogger _logger;
