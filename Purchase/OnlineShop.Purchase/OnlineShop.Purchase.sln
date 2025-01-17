@@ -1,0 +1,69 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{86E2304A-7B8D-4B26-AE5D-5484E284D485}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{C9121336-C89E-4AF7-ACB6-780E948DF991}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01.Core", "01.Core", "{32D27A41-C6E1-4BCC-8B46-F05651B98007}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02.Infra", "02.Infra", "{88779D74-F213-4F8F-89DE-D6E1EC4F876D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03.Endpoints", "03.Endpoints", "{EAC2E811-07B0-4637-927B-BE60EBC12C97}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{C35E6438-91D2-4776-A8D3-5A782D2551E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineShop.Purchase.Core.ApplicationServices", "src\01.Core\OnlineShop.Purchase.Core.ApplicationServices\OnlineShop.Purchase.Core.ApplicationServices.csproj", "{468FADA9-2819-4A05-AFF3-A9DAD9AA4EE7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineShop.Purchase.Core.Domain", "src\01.Core\OnlineShop.Purchase.Core.Domain\OnlineShop.Purchase.Core.Domain.csproj", "{2D94E3B2-8064-4A4E-9355-EE1016D557EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineShop.Purchase.Infra.Data.Sql.Queries", "src\02.Infra\Data\OnlineShop.Purchase.Infra.Data.Sql.Queries\OnlineShop.Purchase.Infra.Data.Sql.Queries.csproj", "{E81C9837-3112-4744-BC92-D1EFE2C07C96}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineShop.Purchase.Infra.Data.Sql.Commands", "src\02.Infra\Data\OnlineShop.Purchase.Infra.Data.Sql.Commands\OnlineShop.Purchase.Infra.Data.Sql.Commands.csproj", "{05A9D901-847D-4228-A4E6-491F88C14CA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineShop.Purchase.Endpoints.RestAPI", "src\03.Endpoints\OnlineShop.Purchase.Endpoints.RestAPI\OnlineShop.Purchase.Endpoints.RestAPI.csproj", "{84C783BB-AF70-4573-9CC1-A43384E3577B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{468FADA9-2819-4A05-AFF3-A9DAD9AA4EE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{468FADA9-2819-4A05-AFF3-A9DAD9AA4EE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{468FADA9-2819-4A05-AFF3-A9DAD9AA4EE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{468FADA9-2819-4A05-AFF3-A9DAD9AA4EE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D94E3B2-8064-4A4E-9355-EE1016D557EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D94E3B2-8064-4A4E-9355-EE1016D557EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D94E3B2-8064-4A4E-9355-EE1016D557EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D94E3B2-8064-4A4E-9355-EE1016D557EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E81C9837-3112-4744-BC92-D1EFE2C07C96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E81C9837-3112-4744-BC92-D1EFE2C07C96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E81C9837-3112-4744-BC92-D1EFE2C07C96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E81C9837-3112-4744-BC92-D1EFE2C07C96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05A9D901-847D-4228-A4E6-491F88C14CA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05A9D901-847D-4228-A4E6-491F88C14CA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05A9D901-847D-4228-A4E6-491F88C14CA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05A9D901-847D-4228-A4E6-491F88C14CA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84C783BB-AF70-4573-9CC1-A43384E3577B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84C783BB-AF70-4573-9CC1-A43384E3577B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84C783BB-AF70-4573-9CC1-A43384E3577B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84C783BB-AF70-4573-9CC1-A43384E3577B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{32D27A41-C6E1-4BCC-8B46-F05651B98007} = {86E2304A-7B8D-4B26-AE5D-5484E284D485}
+		{88779D74-F213-4F8F-89DE-D6E1EC4F876D} = {86E2304A-7B8D-4B26-AE5D-5484E284D485}
+		{EAC2E811-07B0-4637-927B-BE60EBC12C97} = {86E2304A-7B8D-4B26-AE5D-5484E284D485}
+		{C35E6438-91D2-4776-A8D3-5A782D2551E6} = {88779D74-F213-4F8F-89DE-D6E1EC4F876D}
+		{468FADA9-2819-4A05-AFF3-A9DAD9AA4EE7} = {32D27A41-C6E1-4BCC-8B46-F05651B98007}
+		{2D94E3B2-8064-4A4E-9355-EE1016D557EB} = {32D27A41-C6E1-4BCC-8B46-F05651B98007}
+		{E81C9837-3112-4744-BC92-D1EFE2C07C96} = {C35E6438-91D2-4776-A8D3-5A782D2551E6}
+		{05A9D901-847D-4228-A4E6-491F88C14CA4} = {C35E6438-91D2-4776-A8D3-5A782D2551E6}
+		{84C783BB-AF70-4573-9CC1-A43384E3577B} = {EAC2E811-07B0-4637-927B-BE60EBC12C97}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,6 @@
+@OnlineShop.Purchase.Endpoints.RestAPI_HostAddress = http://localhost:5028
+
+GET {{OnlineShop.Purchase.Endpoints.RestAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
