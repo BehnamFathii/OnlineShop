@@ -22,8 +22,8 @@ public class Product :AggregateRoot<long>
     public static Product Create(CreateProductParameter parameter)
     {
         var product = new Product(parameter);
-        product.AddDomainEvent(new HomeCreated(home.Id));
-       // return home;
+        product.AddDomainEvent(new ProductCreated(product.Id));
+        return product;
     }
 
 }
