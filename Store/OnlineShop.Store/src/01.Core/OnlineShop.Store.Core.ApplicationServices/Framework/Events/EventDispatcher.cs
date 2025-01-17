@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using OnlineShop.Store.Core.Domain.Framework;
 
 namespace OnlineShop.Store.Core.ApplicationServices.Framework.Events;
 public class EventDispatcher : IEventDispatcher
@@ -13,7 +14,7 @@ public class EventDispatcher : IEventDispatcher
         _serviceProvider = serviceProvider;
     }
 
-    public async Task PublishDomainEventAsync<TDomainEvent>(TDomainEvent @event) where TDomainEvent : class, IDomainEvent
+    public async Task PublishDomainEventAsync<TDomainEvent>(TDomainEvent @event,CancellationToken cancellationToken) where TDomainEvent : class, IDomainEvent
     {
         int counter = 0;
         try
@@ -24,7 +25,7 @@ public class EventDispatcher : IEventDispatcher
             foreach (var handler in handlers)
             {
                 counter++;
-                tasks.Add(handler.Handle(@event));
+                tasks.Add(handler.Handle(@event, cancellationToken));
             }
             await Task.WhenAll(tasks);
         }

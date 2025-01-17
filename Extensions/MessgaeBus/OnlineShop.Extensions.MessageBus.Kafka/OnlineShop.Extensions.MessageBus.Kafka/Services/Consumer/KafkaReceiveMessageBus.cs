@@ -1,37 +1,37 @@
 ﻿using Confluent.Kafka;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
+using OnlineShop.Extensions.MessageBus.Kafka.Options;
 
 namespace OnlineShop.Extensions.MessageBus.Kafka.Services.Consumer;
-public class ConsumerService<TDomainEvent>
+public class KafkaReceiveMessageBus : IReceiveMessageBus
 {
     private readonly IConsumer<Ignore, string> _consumer;
-    private readonly ILogger<ConsumerService<TDomainEvent>> _logger;
+    private readonly KafkaOptions _kafkaOptions;
+    private readonly ILogger<KafkaReceiveMessageBus> _logger;
 
-    public ConsumerService(ILogger<ConsumerService<TDomainEvent>> logger, IConfiguration configuration)
+    public KafkaReceiveMessageBus(ILogger<KafkaReceiveMessageBus> logger, IOptions<KafkaOptions> kafkaOptions)
     {
+        _logger = logger;
+        _kafkaOptions = kafkaOptions.Value;
         var consumerConfig = new ConsumerConfig
         {
-            BootstrapServers = configuration["Kafka:BootstrapServers"],
-            GroupId = "OnlineShopGroup1",
+            BootstrapServers = _kafkaOptions.Url,
+            GroupId = _kafkaOptions.GroupId,
             AutoOffsetReset = AutoOffsetReset.Earliest
         };
 
         _consumer = new ConsumerBuilder<Ignore, string>(consumerConfig).Build();
-        _logger = logger;
+        _consumer.Subscribe(_kafkaOptions.TopicName);
     }
 
-    public void Subscribe()
-        => _consumer.Subscribe("Test");
-
-
-    public TDomainEvent? ProcessKafkaMessage(CancellationToken cancellationToken)
+    public TDomainEvent? ConsumeEvent<TDomainEvent>()
     {
         TDomainEvent? result = default;
         try
         {
-            var consumeResult = _consumer.Consume(cancellationToken);
+            var consumeResult = _consumer.Consume();
 
             var message = consumeResult.Message.Value;
             if (message != null)
