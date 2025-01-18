@@ -37,8 +37,8 @@ public class KafkaReceiveMessageBus : IReceiveMessageBus
             if (message != null)
             {
                 result = JsonConvert.DeserializeObject<TDomainEvent>(message);
+                _logger.LogInformation($"Message of type {typeof(TDomainEvent).Name} Received : {message}");
             }
-            _logger.LogInformation($"Received inventory update: {message}");
         }
         catch (Exception ex)
         {
