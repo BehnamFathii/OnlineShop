@@ -22,7 +22,7 @@ public class Order : AggregateRoot<long>
 
     public DateTime OrderDate { get; private set; }
     public OrderStatus Status { get; private set; }
-    public Money TotalPrice { get; set; }
+    public Money TotalPrice { get; private set; }
 
     public IReadOnlyList<OrderLine> OrderLines => _orderLines;
 
