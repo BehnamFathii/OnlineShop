@@ -6,4 +6,24 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Orders\Events\" />
+    <Folder Include="Orders\Queries\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.1" />
+	 <PackageReference Include="MediatR" Version="12.4.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OnlineShop.Purchase.Core.Domain\OnlineShop.Purchase.Core.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="OnlineShop.Extensions.MessageBus.Kafka">
+      <HintPath>..\..\..\..\..\Extensions\MessgaeBus\OnlineShop.Extensions.MessageBus.Kafka\OnlineShop.Extensions.MessageBus.Kafka\bin\Debug\net9.0\OnlineShop.Extensions.MessageBus.Kafka.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

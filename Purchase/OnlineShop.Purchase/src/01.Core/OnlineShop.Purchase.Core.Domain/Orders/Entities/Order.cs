@@ -2,17 +2,16 @@
 using OnlineShop.Purchase.Core.Domain.Framework.Exceptions;
 using OnlineShop.Purchase.Core.Domain.Orders.Enums;
 using OnlineShop.Purchase.Core.Domain.Orders.Events;
-using OnlineShop.Purchase.Core.Domain.Orders.Parameters;
 using OnlineShop.Purchase.Core.Domain.Orders.ValueObjects;
 
 namespace OnlineShop.Purchase.Core.Domain.Orders.Entities;
 public class Order : AggregateRoot<long>
 {
-    public Order(CreateOrderParameter parameter)
+    public Order(DateTime dateTime)
     {
-        OrderDate = parameter.OrderDate;
-        Status = parameter.Status;
-        TotalPrice = parameter.TotalPrice;
+        OrderDate = dateTime;
+        Status = OrderStatus.New;
+        TotalPrice = Money.FromDouble(_orderLines.Sum(c => c.Price.Amount));
     }
     private Order()
     {
@@ -27,9 +26,9 @@ public class Order : AggregateRoot<long>
     public IReadOnlyList<OrderLine> OrderLines => _orderLines;
 
 
-    public static Order Create(CreateOrderParameter parameter)
+    public static Order Create(DateTime dateTime)
     {
-        var order = new Order(parameter);
+        var order = new Order(dateTime);
         order.AddDomainEvent(new OrderCreated(order.Id));
         return order;
     }
@@ -61,7 +60,7 @@ public class Order : AggregateRoot<long>
         if (!_orderLines.Any())
         {
             Status = OrderStatus.New;
-            TotalPrice = Money.FromInt(0);
+            TotalPrice = Money.FromDouble(0);
             AddDomainEvent(new OrderWasEmpty(Id));
         }
 
