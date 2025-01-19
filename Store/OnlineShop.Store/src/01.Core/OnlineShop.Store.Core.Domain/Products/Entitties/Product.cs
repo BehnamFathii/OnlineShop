@@ -74,6 +74,4 @@ public class Product : AggregateRoot<long>
             AddDomainEvent(new ProductDecreased(Id, numberOfDecrease.Number));
         }
     }
-
-
 }

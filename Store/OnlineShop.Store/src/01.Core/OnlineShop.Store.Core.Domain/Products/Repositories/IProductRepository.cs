@@ -5,7 +5,6 @@ namespace OnlineShop.Store.Core.Domain.Products.Repositories;
 public interface IProductRepository: IBaseRepository
 {
     Task<Product?> GetByIdAsync(long Id, CancellationToken cancellationToken = default);
-    Task<Product?> GetGraphByIdAsync(long Id, CancellationToken cancellationToken = default);
 
     Task Add(Product product, CancellationToken cancellationToken = default);
 }
