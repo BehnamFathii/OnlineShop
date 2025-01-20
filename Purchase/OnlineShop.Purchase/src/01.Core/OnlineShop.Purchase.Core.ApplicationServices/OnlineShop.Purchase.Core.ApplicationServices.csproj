@@ -12,6 +12,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="Confluent.Kafka" Version="2.8.0" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.1" />
 		<PackageReference Include="FluentValidation" Version="11.11.0" />
 		<PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.11.0" />
@@ -23,9 +24,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Reference Include="OnlineShop.Extensions.MessageBus.Kafka">
-			<HintPath>..\..\..\..\..\Extensions\MessgaeBus\OnlineShop.Extensions.MessageBus.Kafka\OnlineShop.Extensions.MessageBus.Kafka\bin\Debug\net9.0\OnlineShop.Extensions.MessageBus.Kafka.dll</HintPath>
-		</Reference>
+	  <Reference Include="OnlineShop.Extensions.MessageBus.Kafka">
+	    <HintPath>..\..\..\..\..\Extensions\MessgaeBus\OnlineShop.Extensions.MessageBus.Kafka\OnlineShop.Extensions.MessageBus.Kafka\bin\Debug\net9.0\OnlineShop.Extensions.MessageBus.Kafka.dll</HintPath>
+	  </Reference>
 	</ItemGroup>
 
 </Project>

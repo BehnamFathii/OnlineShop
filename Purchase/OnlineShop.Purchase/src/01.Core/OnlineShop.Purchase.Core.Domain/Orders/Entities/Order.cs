@@ -11,7 +11,6 @@ public class Order : AggregateRoot<long>
     {
         OrderDate = dateTime;
         Status = OrderStatus.New;
-        TotalPrice = Money.FromDouble(_orderLines.Sum(c => c.Price.Amount));
     }
     private Order()
     {
@@ -33,17 +32,18 @@ public class Order : AggregateRoot<long>
         return order;
     }
 
-    public void AddItem(long productId)
+    public void AddItem(long productId,Money price, Quantity number)
     {
         if (_orderLines.Any(c => c.ProductId == productId))
         {
             throw new InvalidEntityStateException("سفارش تکراری");
         }
 
-        var orderLine = new OrderLine(productId);
+        var orderLine = new OrderLine(productId,price, number);
         _orderLines.Add(orderLine);
-
+        TotalPrice = Money.FromDouble(_orderLines.Sum(c => c.Price.Amount));
         AddDomainEvent(new OrderLineAdded(Id, orderLine.Id));
+        AddDomainEvent(new ProductPurchased(Id, price.Amount, number.Number));
     }
 
 

@@ -16,8 +16,10 @@ public class OrderLine : BaseEntity<long>
 
     }
 
-    public OrderLine(long productId)
+    public OrderLine(long productId,Money price, Quantity number)
     {
         ProductId = productId;
+        Price = price;
+        Number = number;
     }
 }

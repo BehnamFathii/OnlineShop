@@ -14,4 +14,6 @@ public record Quantity(int Number)
 
     public static int Zero => 0;
     public bool IsZero() => Number == Zero;
+    public static Quantity FromInt(int number) => new(number);
+
 }

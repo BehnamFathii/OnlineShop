@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Options;
 using OnlineShop.Extensions.MessageBus.Kafka.Options;
 using OnlineShop.Extensions.MessageBus.Kafka.Services.Consumer;
 using OnlineShop.Extensions.MessageBus.Kafka.Services.Producer;
@@ -20,5 +19,4 @@ public static class KafkaMessageBusServiceCollectionExtensions
 
         return services;
     }
-
 }

@@ -3,4 +3,5 @@
 namespace OnlineShop.Purchase.Core.ApplicationServices.Orders.Commands;
 public record PurchaseCommand(
     long ProductId,
-    int Quantity) : ICommand<long>;
+    int Quantity,
+    double price) : ICommand<long>;

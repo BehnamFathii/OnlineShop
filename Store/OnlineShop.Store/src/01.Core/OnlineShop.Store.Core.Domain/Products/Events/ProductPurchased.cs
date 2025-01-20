@@ -2,4 +2,4 @@
 
 namespace OnlineShop.Store.Core.Domain.Products.Events;
 
-public record ProductPurchased(long Id, int Number) : IDomainEvent;
+public record ProductPurchased(long Id, double price, int Number) : IDomainEvent;

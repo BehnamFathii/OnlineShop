@@ -18,8 +18,8 @@ public static class ApplicationRegistrer
             return loggerFactory.CreateLogger(categoryName);
         });
         services.AddSingleton(typeof(ICommandHandler<CreateProductCommand, long>) ,new  CreateProductCommandHandler());
-        services.AddTransient<IEventDispatcher, EventDispatcher>();
-        services.AddTransient< IDomainEventHandler<ProductPurchased>,ProductPurchasedDomainEventHandler>();
+        services.AddSingleton<IEventDispatcher, EventDispatcher>();
+        services.AddScoped< IDomainEventHandler<ProductPurchased>,ProductPurchasedDomainEventHandler>();
 
         return services;
     }
